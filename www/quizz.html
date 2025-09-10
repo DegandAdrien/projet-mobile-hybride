@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1.0,user-scalable=no,width=device-width">
+
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/common.css">
+
+
+        <title>Quizz</title>
+    </head>
+    <body>
+        <h1>Quizz Page</h1>
+
+        <div id="quizz-content">
+            <img id="pokemon-image" alt="Pokemon"/>
+            <p id="pokemon-name"></p>
+
+            <label for="guess-input">Quel est le nom de ce pokemon ?</label>
+            <input type="text" id="guess-input"/>
+
+            <button id="guess-button" onclick="guessPokemon()">Guess</button>
+        </div>
+
+        <div id="quizz-result" hidden="true">
+            <p>Vous avez terminé le quizz ! Votre score est de : <span id="score"></span></p>
+        </div>
+
+        <a href="./index.html">home</a>
+
+        <script src="./js/quizz.js"></script>
+    </body>
+</html>
