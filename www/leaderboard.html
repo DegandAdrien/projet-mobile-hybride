@@ -6,16 +6,23 @@
 
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/leaderboard.css">
 
         <script src="cordova.js" defer></script>
-        <script src="js/index.js" defer></script>
+        <script src="js/leaderboard.js" defer></script>
 
         <title>Leaderboard</title>
     </head>
     <body>
-        <h1>LeaderBoard Page</h1>
+        <a href="./index.html">
+            <img src="./assets/arrow_left.png" alt="Home"  width="32px" height="32px" />
+        </a>
 
-        <a href="./index.html">home</a>
+        <div id="leaderboard-layout">
+            <h1>Liste des meilleurs scores</h1>
+
+            <div id="leaderboard-content"></div>
+        </div>
 
     </body>
 </html>

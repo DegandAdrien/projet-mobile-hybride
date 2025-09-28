@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 let pokemonIdx = 0;
 let score = 0;
 const pokemonToGuess = [];
@@ -37,7 +35,7 @@ function guessPokemon() {
 
     const guess = document.getElementById('guess-input').value;
 
-    if (pokemon.name.fr == guess) {
+    if (pokemon.name.fr === guess) {
         score += 1;
     }
 
@@ -48,6 +46,8 @@ function guessPokemon() {
     } else {
         displayPokemon();
     }
+
+    document.getElementById('guess-input').value = "";
 }
 
 function displayPokemon() {
@@ -55,9 +55,7 @@ function displayPokemon() {
 
     imageElement.src = pokemonToGuess[pokemonIdx].sprites.regular;
 
-    const textElement = document.getElementById('pokemon-name');
-
-    textElement.textContent = pokemonToGuess[pokemonIdx].name.fr;
+    console.log(pokemonToGuess[pokemonIdx].name.fr)
 }
 
 function endGame() {
@@ -71,9 +69,63 @@ function endGame() {
     const scoreElement = document.getElementById('score');
 
     scoreElement.innerHTML = score;
+
+    window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dirEntry) {
+        console.log(dirEntry)
+        var isAppend = true;
+        createFile(dirEntry, "score.txt", isAppend, `${score}\n`);
+    });
 }
 
-void main();
+function createFile(dirEntry, fileName, isAppend, score) {
+    // Creates a new file or returns the file if it already exists.
+    dirEntry.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
 
+        writeFile(fileEntry, score, isAppend);
 
+    });
+
+}
+
+function readFile(fileEntry) {
+
+    fileEntry.file(function (file) {
+        var reader = new FileReader();
+
+        reader.onloadend = function() {
+            console.log("Successful file read: " + this.result);
+        };
+
+        reader.readAsText(file);
+
+    });
+}
+
+function writeFile(fileEntry, dataObj, isAppend, score) {
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function (fileWriter) {
+
+        fileWriter.onwriteend = function() {
+            console.log("Successful file read...");
+            readFile(fileEntry);
+        };
+
+        fileWriter.onerror = function (e) {
+            console.log("Failed file read: " + e.toString());
+        };
+
+        // If we are appending data to file, go to the end of the file.
+        if (isAppend) {
+            try {
+                fileWriter.seek(fileWriter.length);
+            }
+            catch (e) {
+                console.log("file doesn't exist!");
+            }
+        }
+        fileWriter.write(dataObj);
+    });
+}
+
+document.addEventListener('deviceready', main, false);
 

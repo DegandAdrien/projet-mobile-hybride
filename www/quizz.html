@@ -6,16 +6,18 @@
 
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/quizz.css">
 
 
         <title>Quizz</title>
     </head>
     <body>
-        <h1>Quizz Page</h1>
+        <a href="./index.html">
+            <img src="./assets/arrow_left.png" alt="Home"  width="32px" height="32px" />
+        </a>
 
         <div id="quizz-content">
             <img id="pokemon-image" alt="Pokemon"/>
-            <p id="pokemon-name"></p>
 
             <label for="guess-input">Quel est le nom de ce pokemon ?</label>
             <input type="text" id="guess-input"/>
@@ -27,8 +29,7 @@
             <p>Vous avez terminé le quizz ! Votre score est de : <span id="score"></span></p>
         </div>
 
-        <a href="./index.html">home</a>
-
+        <script src="cordova.js" ></script>
         <script src="./js/quizz.js"></script>
     </body>
 </html>
