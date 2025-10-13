@@ -1,3 +1,5 @@
+import BGVibration from "com.bg.vibration/www/vibration";
+
 let pokemonIdx = 0;
 let score = 0;
 const pokemonToGuess = [];
@@ -37,6 +39,19 @@ function guessPokemon() {
 
     if (pokemon.name.fr === guess) {
         score += 1;
+        BGVibration.vibrate(100,
+            () => console.log("Vibration réussie"),
+            err => console.error("Erreur :", err)
+        );
+        BGVibration.vibrate(100,
+            () => console.log("Vibration réussie"),
+            err => console.error("Erreur :", err)
+        );
+    } else {
+        BGVibration.vibrate(200,
+            () => console.log("Vibration réussie"),
+            err => console.error("Erreur :", err)
+        );
     }
 
     pokemonIdx += 1;

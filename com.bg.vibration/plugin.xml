@@ -1,0 +1,17 @@
+<plugin id="com.bg.vibration" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins">
+    <name>BGVibration</name>
+
+    <js-module src="www/vibration.js" name="BGVibration">
+        <clobbers target="BGVibration" />
+    </js-module>
+
+    <!-- Android -->
+    <platform name="android">
+        <source-file src="src/android/Vibration.java" target-dir="src/com/bg/vibration" />
+    </platform>
+
+    <!-- iOS -->
+    <platform name="ios">
+        <source-file src="src/ios/Vibration.swift" />
+    </platform>
+</plugin>

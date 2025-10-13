@@ -13,6 +13,7 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
+    "com.bg.vibration": "file:com.bg.vibration",
     "cordova-android": "^14.0.1",
     "cordova-ios": "^7.1.1",
     "cordova-plugin-file": "^8.1.3"
@@ -25,7 +26,8 @@
     "plugins": {
       "cordova-plugin-file": {
         "ANDROIDX_WEBKIT_VERSION": "1.4.0"
-      }
+      },
+      "com.bg.vibration": {}
     }
   }
 }
